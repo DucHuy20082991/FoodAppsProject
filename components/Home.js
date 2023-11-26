@@ -14,8 +14,8 @@ import popularData from '../assets/data/popularData';
 import colors from '../assets/colors/color';
 import { useNavigation } from '@react-navigation/native'
 
-export default Home = () => {
-  const navigation = useNavigation()
+export default Home = ({navigation}) => {
+  // const navigation = useNavigation()
   const renderCategoryItem = ({item}) => {
     return (
       <View
@@ -99,6 +99,7 @@ export default Home = () => {
                 navigation.navigate('Detail', {
                   item: item,
                 })
+                
               }>
               <View
                 style={[
