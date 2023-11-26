@@ -1,21 +1,27 @@
 import * as React from 'react';
-import {Text, StyleSheet, View, Image, FlatList, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import categoriesData from '../assets/data/categoriesData';
 import popularData from '../assets/data/popularData';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../assets/colors/color';
 
 export default Home = () => {
-
-  const renderCategoryItem = ({ item }) => {
+  const renderCategoryItem = ({item}) => {
     return (
       <View
         style={[
           styles.categoryItemWrapper,
           {
-            backgroundColor: item.selected ? '#F5CA48': "white",
+            backgroundColor: item.selected ? '#F5CA48' : 'white',
             marginLeft: item.id == 1 ? 20 : 0,
           },
         ]}>
@@ -25,70 +31,66 @@ export default Home = () => {
           style={[
             styles.categorySelectWrapper,
             {
-              backgroundColor: item.selected ? "white" :'#F5CA48',
+              backgroundColor: item.selected ? 'white' : '#F5CA48',
             },
           ]}>
-          <Feather
-            name="chevron-right"
-            size={8}
-            style={styles.categorySelectIcon}
-            color={item.selected ? "black" : "white"}
-          />
+          <Image
+            style={{height: 15, width: 15, alignSelf: 'center'}}
+            source={require('../assets/images/chevron.png')}></Image>
         </View>
       </View>
     );
   };
 
   return (
-    
     <View style={styles.container}>
-      <ScrollView  contentInsetAdjustmentBehavior="automatic"
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
         showsVerticalScrollIndicator={false}>
-      
-      {/* Header */}
-      <SafeAreaView>
-        <View style={styles.headerWrapper}>
-          <Image
-            source={require('../assets/images/profile.png')}
-            style={styles.profileImage}
-          />
+        {/* Header */}
+        <SafeAreaView>
+          <View style={styles.headerWrapper}>
+            <Image
+              source={require('../assets/images/profile.png')}
+              style={styles.profileImage}
+            />
+            <Image
+              style={{height: 24, width: 24}}
+              source={require('../assets/images/menu.png')}></Image>
+          </View>
+        </SafeAreaView>
+
+        <View style={styles.titlesWrapper}>
+          <Text style={styles.titlesSubtitle}>Food</Text>
+          <Text style={styles.titlesSubtitle}>Delivery</Text>
+        </View>
+        {/* Search */}
+        <View style={styles.searchWrapper}>
           <Image
             style={{height: 24, width: 24}}
-            source={require('../assets/images/menu.png')}></Image>
+            source={require('../assets/images/search.png')}></Image>
+          <View style={styles.search}>
+            <Text style={styles.searchText}>Search</Text>
+          </View>
         </View>
-      </SafeAreaView>
 
-      <View style={styles.titlesWrapper}>
-        <Text style={styles.titlesSubtitle}>Food</Text>
-        <Text style={styles.titlesSubtitle}>Delivery</Text>
-      </View>
-      {/* Search */}
-      <View style={styles.searchWrapper}>
-        <Image
-          style={{height: 24, width: 24}}
-          source={require('../assets/images/search.png')}></Image>
-        <View style={styles.search}>
-          <Text style={styles.searchText}>Search</Text>
+        {/* Categories */}
+        <View style={styles.categoriesWrapper}>
+          <Text style={styles.categoriesTitle}>Categories</Text>
+          <View style={styles.categoriesListWrapper}>
+            <FlatList
+              data={categoriesData}
+              renderItem={renderCategoryItem}
+              keyExtractor={item => item.id}
+              horizontal={true}
+            />
+          </View>
         </View>
-      </View>
+        {/* Popular */}
 
-      {/* Categories */}
-      <View style={styles.categoriesWrapper}>
-        <Text style={styles.categoriesTitle}>Categories</Text>
-        <View style={styles.categoriesListWrapper}>
-          <FlatList
-            data={categoriesData}
-            renderItem={renderCategoryItem}
-            keyExtractor={item => item.id}
-            horizontal={true}
-          />
-        </View>
-      </View>
-       {/* Popular */}
-       
         <View style={styles.popularWrapper}>
           <Text style={styles.popularTitle}>Popular</Text>
-          {popularData.map((item) => (
+          {popularData.map(item => (
             <TouchableOpacity
               key={item.id}
               onPress={() =>
@@ -106,7 +108,9 @@ export default Home = () => {
                 <View>
                   <View>
                     <View style={styles.popularTopWrapper}>
-                    <Image style={{height: 24, width: 24}}source={require('../assets/images/crown.png')}></Image>
+                      <Image
+                        style={{height: 24, width: 24}}
+                        source={require('../assets/images/crown.png')}></Image>
                       <Text style={styles.popularTopText}>top of the week</Text>
                     </View>
                     <View style={styles.popularTitlesWrapper}>
@@ -120,10 +124,14 @@ export default Home = () => {
                   </View>
                   <View style={styles.popularCardBottom}>
                     <View style={styles.addPizzaButton}>
-                    <Image style={{height: 10, width: 10}}source={require('../assets/images/plus.png')}></Image>
+                      <Image
+                        style={{height: 10, width: 10}}
+                        source={require('../assets/images/plus.png')}></Image>
                     </View>
                     <View style={styles.ratingWrapper}>
-                      <Image style={{height: 10, width: 10}}source={require('../assets/images/star.png')}></Image>
+                      <Image
+                        style={{height: 10, width: 10}}
+                        source={require('../assets/images/star.png')}></Image>
                       <Text style={styles.rating}>{item.rating}</Text>
                     </View>
                   </View>
@@ -136,10 +144,8 @@ export default Home = () => {
             </TouchableOpacity>
           ))}
         </View>
-        </ScrollView>
+      </ScrollView>
     </View>
-         
-
   );
 };
 const styles = StyleSheet.create({
