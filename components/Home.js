@@ -40,8 +40,11 @@ export default Home = () => {
   };
 
   return (
-    <ScrollView>
+    
     <View style={styles.container}>
+      <ScrollView  contentInsetAdjustmentBehavior="automatic"
+        showsVerticalScrollIndicator={false}>
+      
       {/* Header */}
       <SafeAreaView>
         <View style={styles.headerWrapper}>
@@ -103,11 +106,7 @@ export default Home = () => {
                 <View>
                   <View>
                     <View style={styles.popularTopWrapper}>
-                      <MaterialCommunityIcons
-                        name="crown"
-                        size={12}
-                        color={'#F5CA48'}
-                      />
+                    <Image style={{height: 24, width: 24}}source={require('../assets/images/crown.png')}></Image>
                       <Text style={styles.popularTopText}>top of the week</Text>
                     </View>
                     <View style={styles.popularTitlesWrapper}>
@@ -121,14 +120,10 @@ export default Home = () => {
                   </View>
                   <View style={styles.popularCardBottom}>
                     <View style={styles.addPizzaButton}>
-                     
+                    <Image style={{height: 10, width: 10}}source={require('../assets/images/plus.png')}></Image>
                     </View>
                     <View style={styles.ratingWrapper}>
-                      <MaterialCommunityIcons
-                        name="star"
-                        size={10}
-                        color={'#313234'}
-                      />
+                      <Image style={{height: 10, width: 10}}source={require('../assets/images/star.png')}></Image>
                       <Text style={styles.rating}>{item.rating}</Text>
                     </View>
                   </View>
@@ -141,8 +136,9 @@ export default Home = () => {
             </TouchableOpacity>
           ))}
         </View>
+        </ScrollView>
     </View>
-          </ScrollView>
+         
 
   );
 };
