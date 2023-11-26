@@ -5,7 +5,7 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
-  Image,
+  Image, FlatList
 } from 'react-native';
 import colors from '../assets/colors/color';
 import { useNavigation } from '@react-navigation/native';
@@ -14,7 +14,19 @@ const Detail = ({ route }) => {
   const navigation = useNavigation(); // Lấy đối tượng navigation
 
   const { item } = route.params;
-
+  const renderIngredientsItem = ({ item }) => {
+    return (
+      <View
+        style={[
+          styles.ingredientItemWrapper,
+          {
+            marginLeft: item.id === '1' ? 20 : 0,
+          },
+        ]}>
+        <Image source={item.image} style={styles.ingredientImage} />
+      </View>
+    );
+  };
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -67,6 +79,19 @@ const Detail = ({ route }) => {
         </View>
         <View>
           <Image source={item.image} style={styles.itemImage} />
+        </View>
+      </View>
+
+      <View style={styles.ingredientsWrapper}>
+        <Text style={styles.ingredientsTitle}>Ingredients</Text>
+        <View style={styles.ingredientsListWrapper}>
+          <FlatList
+            data={item.ingredients}
+            renderItem={renderIngredientsItem}
+            keyExtractor={(item) => item.id}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          />
         </View>
       </View>
     </View>
@@ -136,6 +161,40 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-SemiBold',
     fontSize: 18,
     color: colors.textDark,
+  }, itemImage: {
+    resizeMode: 'contain',
+    marginLeft: 50,
+  },
+  ingredientsWrapper: {
+    marginTop: 40,
+  },
+  ingredientsTitle: {
+    paddingHorizontal: 20,
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 16,
+    color: colors.textDark,
+  },
+  ingredientsListWrapper: {
+    paddingVertical: 20,
+  },
+  ingredientItemWrapper: {
+    backgroundColor: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+    marginRight: 15,
+    borderRadius: 15,
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    elevation: 2,
+  },
+  ingredientImage: {
+    resizeMode: 'contain',
   },
 });
 
