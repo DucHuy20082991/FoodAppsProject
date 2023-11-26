@@ -8,13 +8,14 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import categoriesData from '../assets/data/categoriesData';
 import popularData from '../assets/data/popularData';
 import colors from '../assets/colors/color';
+import { useNavigation } from '@react-navigation/native'
 
 export default Home = () => {
+  const navigation = useNavigation()
   const renderCategoryItem = ({item}) => {
     return (
       <View
@@ -94,7 +95,8 @@ export default Home = () => {
             <TouchableOpacity
               key={item.id}
               onPress={() =>
-                navigation.navigate('Details', {
+                
+                navigation.navigate('Detail', {
                   item: item,
                 })
               }>
