@@ -26,6 +26,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import colors from './assets/colors/color';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -56,6 +57,7 @@ function Section({children, title}: SectionProps): JSX.Element {
     </View>
   );
 }
+Icon.loadFont();
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -74,6 +76,7 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+        <Icon name = 'ios-person' size = {30} color = {"#4F8EF7"}></Icon>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
