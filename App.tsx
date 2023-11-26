@@ -25,6 +25,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import colors from './assets/colors/color';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -104,6 +106,8 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
+    color: colors.secondary,
+    fontFamily: 'Montserrat-Regular',
   },
   sectionDescription: {
     marginTop: 8,
