@@ -94,6 +94,15 @@ const Detail = ({ route }) => {
           />
         </View>
       </View>
+
+      <TouchableOpacity onPress={() => alert('Your order has been placed!')}>
+        <View style={styles.orderWrapper}>
+          <Text style={styles.orderText}>Place an order</Text>
+          <Image
+            style={{height: 15, width: 15, alignSelf: 'center'}}
+            source={require('../assets/images/chevron.png')}></Image>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -195,6 +204,21 @@ const styles = StyleSheet.create({
   },
   ingredientImage: {
     resizeMode: 'contain',
+  },
+  orderWrapper: {
+    marginTop: 60,
+    marginHorizontal: 20,
+    backgroundColor: colors.primary,
+    borderRadius: 50,
+    paddingVertical: 25,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  orderText: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 14,
+    marginRight: 10,
   },
 });
 

@@ -6,13 +6,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from './components/Home';
 import Detail from './components/Detail';
+import SplashScreen from './components/SplashScreen';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
+      <Stack.Navigator initialRouteName="SplashScreen">
         <Stack.Screen
           name="Home"
           component={Home}
@@ -20,7 +21,13 @@ export default function App() {
             headerShown: false,
           }}
         />
-
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="Detail"
           component={Detail}
