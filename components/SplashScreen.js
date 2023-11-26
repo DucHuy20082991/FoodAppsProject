@@ -9,7 +9,7 @@ const SplashScreen = () => {
     const timer = setTimeout(() => {
       // Chuyển màn hình sau khi hiển thị Splash Screen
       navigation.replace('Home'); // Thay 'MainScreen' bằng tên màn hình muốn chuyển đến sau khi Splash Screen
-    }, 2000); // Thời gian hiển thị Splash Screen, ở đây là 2000ms (2 giây)
+    }, 3000); // Thời gian hiển thị Splash Screen, ở đây là 2000ms (2 giây)
 
     return () => clearTimeout(timer); // Hủy timer khi component unmount để tránh lỗi memory leak
   }, []);
