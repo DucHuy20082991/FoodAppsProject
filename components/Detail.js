@@ -63,17 +63,17 @@ const Detail = ({ route }) => {
       <View style={styles.infoWrapper}>
         <View style={styles.infoLeftWrapper}>
           <View style={styles.infoItemWrapper}>
-            <Text style={styles.infoItemTitle}>Size</Text>
+            <Text style={styles.infoItemTitle}>Cỡ bánh</Text>
             <Text style={styles.infoItemText}>
               {item.sizeName} {item.sizeNumber}"
             </Text>
           </View>
           <View style={styles.infoItemWrapper}>
-            <Text style={styles.infoItemTitle}>Crust</Text>
+            <Text style={styles.infoItemTitle}>Đế bánh</Text>
             <Text style={styles.infoItemText}>{item.crust}</Text>
           </View>
           <View style={styles.infoItemWrapper}>
-            <Text style={styles.infoItemTitle}>Delivery in</Text>
+            <Text style={styles.infoItemTitle}>Giao hàng vào</Text>
             <Text style={styles.infoItemText}>{item.deliveryTime} min</Text>
           </View>
         </View>
@@ -83,7 +83,7 @@ const Detail = ({ route }) => {
       </View>
 
       <View style={styles.ingredientsWrapper}>
-        <Text style={styles.ingredientsTitle}>Ingredients</Text>
+        <Text style={styles.ingredientsTitle}>Thành phần</Text>
         <View style={styles.ingredientsListWrapper}>
           <FlatList
             data={item.ingredients}
@@ -97,7 +97,7 @@ const Detail = ({ route }) => {
 
       <TouchableOpacity onPress={() => alert('Your order has been placed!')}>
         <View style={styles.orderWrapper}>
-          <Text style={styles.orderText}>Place an order</Text>
+          <Text style={styles.orderText}>Đặt hàng</Text>
           <Image
             style={{height: 15, width: 15, alignSelf: 'center'}}
             source={require('../assets/images/chevron.png')}></Image>

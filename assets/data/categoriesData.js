@@ -8,13 +8,13 @@ const categoriesData = [
     {
       id: '2',
       image: require('../images/shrimp-icon.png'),
-      title: 'Seafood',
+      title: 'Hải sản',
       selected: false,
     },
     {
       id: '3',
       image: require('../images/soda-icon.png'),
-      title: 'Soft Drinks',
+      title: 'Thức uống',
       selected: false,
     },
   ];

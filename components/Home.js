@@ -62,8 +62,8 @@ export default Home = ({navigation}) => {
         </SafeAreaView>
 
         <View style={styles.titlesWrapper}>
-          <Text style={styles.titlesSubtitle}>Food</Text>
-          <Text style={styles.titlesSubtitle}>Delivery</Text>
+          <Text style={styles.titlesSubtitle}>Giao Hàng</Text>
+          <Text style={styles.titlesSubtitle}>Tận Nơi</Text>
         </View>
         {/* Search */}
         <View style={styles.searchWrapper}>
@@ -71,13 +71,13 @@ export default Home = ({navigation}) => {
             style={{height: 24, width: 24}}
             source={require('../assets/images/search.png')}></Image>
           <View style={styles.search}>
-            <Text style={styles.searchText}>Search</Text>
+            <Text style={styles.searchText}>Tìm kiếm</Text>
           </View>
         </View>
 
         {/* Categories */}
         <View style={styles.categoriesWrapper}>
-          <Text style={styles.categoriesTitle}>Categories</Text>
+          <Text style={styles.categoriesTitle}>Thực đơn</Text>
           <View style={styles.categoriesListWrapper}>
             <FlatList
               data={categoriesData}
@@ -90,7 +90,7 @@ export default Home = ({navigation}) => {
         {/* Popular */}
 
         <View style={styles.popularWrapper}>
-          <Text style={styles.popularTitle}>Popular</Text>
+          <Text style={styles.popularTitle}>Phổ biến</Text>
           {popularData.map(item => (
             <TouchableOpacity
               key={item.id}
@@ -114,7 +114,7 @@ export default Home = ({navigation}) => {
                       <Image
                         style={{height: 24, width: 24}}
                         source={require('../assets/images/crown.png')}></Image>
-                      <Text style={styles.popularTopText}>top of the week</Text>
+                      <Text style={styles.popularTopText}>Được chọn nhiều trong tuần</Text>
                     </View>
                     <View style={styles.popularTitlesWrapper}>
                       <Text style={styles.popularTitlesTitle}>
