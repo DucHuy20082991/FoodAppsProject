@@ -1,9 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { useNavigation } from '@react-navigation/native';
+
 
 export const loginUser = createAsyncThunk(
   "login/loginUser",
-  async ({ username, password }, thunkApi) => {
+  async ({ username, password, onSuccess }, thunkApi) => {
     try {
+        
       const api_url = "https://6562cdc5ee04015769a693bb.mockapi.io/users";
       const response = await fetch(api_url);
       const json = await response.json();
@@ -17,13 +20,13 @@ export const loginUser = createAsyncThunk(
           method: "GET",
         });
         if (responseLogin.status === 200 || responseLogin.status === 201) {
-          alert("login success");
-          
+          alert("Đăng nhập thành công");
+          onSuccess();
           return login;
         }
       }
 
-      return alert("failed");
+      return alert("Đăng nhập thất bại");
     } catch (error) {
       return thunkApi.rejectWithValue("Login failed");
     }
@@ -45,6 +48,7 @@ const loginSlice = createSlice({
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.loggingIn = false;
       state.loggedInUser = action.payload;
+
     });
     builder.addCase(loginUser.rejected, (state, action) => {
       state.loggingIn = false;

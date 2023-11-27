@@ -11,32 +11,37 @@ import {
 } from "react-native";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/slice/login";
+import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
-  const dispatch = useDispatch();
+    const navigation = useNavigation()
 
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const onClickLogin = () => {
-    dispatch(loginUser({ username, password }));
+    dispatch(
+        loginUser({
+          username,
+          password,
+          onSuccess: () => {
+            navigation.navigate("Home"); // Chuyển hướng khi đăng nhập thành công
+          },
+        })
+      );
   };
 
   return (
-    <ImageBackground
-      style={styles.background}
-      source={{
-        uri: "https://img.freepik.com/free-vector/blur-pink-blue-abstract-gradient-background-vector_53876-174836.jpg?size=626&ext=jpg&ga=GA1.1.525741919.1700970963&semt=ais",
-      }}
-    >
+    
       <View style={styles.container}>
-        <Text style={styles.title}>Login</Text>
+        <Text style={styles.title}>Đăng nhập</Text>
 
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Username</Text>
+          <Text style={styles.label}>Tên người dùng </Text>
           <TextInput
             style={styles.input}
-            placeholder="Input username"
+            placeholder="Nhập tên người dùng"
             onChangeText={(value) => {
               setUsername(value);
             }}
@@ -44,32 +49,35 @@ const Login = () => {
         </View>
 
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Password</Text>
+          <Text style={styles.label}>Mật khẩu</Text>
           <TextInput
             style={styles.input}
-            placeholder="Input password"
+            placeholder="Nhập mật khẩu"
             onChangeText={(value) => {
               setPassword(value);
             }}
           />
         </View>
         <View style={{ marginStart: 220, marginTop: 5 }}>
-          <Text style={{ color: "black", fontWeight: "bold", fontSize: 16 }}>
-            Forgot password
+          <Text onPress={() => {
+            navigation.navigate("Forgotpassword")
+          }} style={{ color: "black", fontWeight: "bold", fontSize: 16 }}>
+           Quên mật khẩu?
           </Text>
         </View>
 
         <TouchableOpacity onPress={onClickLogin} style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={styles.buttonText}>Đăng nhập</Text>
         </TouchableOpacity>
 
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "black", fontWeight: "bold" }}>
-            You don't have an account? Register
+          <Text onPress={()  => {
+            navigation.navigate("Register")
+          }} style={{ color: "black", fontWeight: "bold" }}>
+            Bạn có tài khoản chưa? Đăng kí
           </Text>
         </View>
       </View>
-    </ImageBackground>
   );
 };
 
@@ -78,7 +86,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    flex: 1,
+    flex: 1,backgroundColor:'orange',
     justifyContent: "center",
     alignItems: "center",
     padding: 20,

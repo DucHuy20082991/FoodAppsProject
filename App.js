@@ -7,17 +7,26 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from './components/Home';
 import Detail from './components/Detail';
 import SplashScreen from './components/SplashScreen';
-import { store } from './redux/store'
-import  { Provider } from 'react-redux';
+import {store} from './redux/store';
+import {Provider} from 'react-redux';
 import Register from './components/Register';
+import Login from './components/Login';
+import Forgotpassword from './components/Forgotpassword';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <Provider store={store}>
-      {/* <NavigationContainer>
-        <Stack.Navigator initialRouteName="Register">
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="SplashScreen">
+        <Stack.Screen
+            name="Forgotpassword"
+            component={Forgotpassword}
+            options={{
+              headerShown: false,
+            }}
+          />
           <Stack.Screen
             name="Home"
             component={Home}
@@ -29,6 +38,14 @@ export default function App() {
           <Stack.Screen
             name="Register"
             component={Register}
+            options={{
+              headerShown: false,
+            }}
+          />
+
+          <Stack.Screen
+            name="Login"
+            component={Login}
             options={{
               headerShown: false,
             }}
@@ -47,10 +64,9 @@ export default function App() {
               headerShown: false,
             }}
           />
+   
         </Stack.Navigator>
-      </NavigationContainer> */}
-
-      <Register></Register>
+      </NavigationContainer>
     </Provider>
   );
 }

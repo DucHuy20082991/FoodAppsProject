@@ -6,14 +6,16 @@ import {
   TouchableOpacity,
   ImageBackground,
   StyleSheet,
+  Alert,
 } from "react-native";
 
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../redux/slice/register"; // Correct import path
+import { useNavigation } from '@react-navigation/native';
 
 const Register = () => {
   const dispatch = useDispatch();
-
+  const navigation = useNavigation()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -28,12 +30,7 @@ const Register = () => {
     dispatch(registerUser(userData));
   };
   return (
-    <ImageBackground
-      style={styles.background}
-      source={{
-        uri: "https://img.freepik.com/free-vector/blur-pink-blue-abstract-gradient-background-vector_53876-174836.jpg?size=626&ext=jpg&ga=GA1.1.525741919.1700970963&semt=ais",
-      }}
-    >
+    
       <View style={styles.container}>
         <Text style={styles.title}>Đăng ký</Text>
 
@@ -41,7 +38,12 @@ const Register = () => {
           <Text style={styles.label}>Họ và tên</Text>
           <TextInput
             onChangeText={(value) => {
-              setName(value);
+              if (value != null) {
+                setName(value);
+              } else {
+                Alert("Vui lòng nhập họ tên")
+              }
+              
             }}
             style={styles.input}
             placeholder="Nhập họ và tên"
@@ -52,7 +54,11 @@ const Register = () => {
           <Text style={styles.label}>Tên người dùng</Text>
           <TextInput
             onChangeText={(value) => {
-              setUsername(value);
+              if (value != null) {
+                setUsername(value);
+              } else {
+                Alert("Vui lòng nhập tên người dùng")
+              }
             }}
             style={styles.input}
             placeholder="Nhập tên người dùng"
@@ -63,7 +69,11 @@ const Register = () => {
           <Text style={styles.label}>Mật khẩu</Text>
           <TextInput
             onChangeText={(value) => {
+              if (value != null) {
               setPassword(value);
+              } else {
+                Alert("Vui lòng nhập mật khẩu")
+              }
             }}
             style={styles.input}
             placeholder="Nhập mật khẩu"
@@ -73,8 +83,15 @@ const Register = () => {
         <TouchableOpacity onPress={handleRegister} style={styles.button}>
           <Text style={styles.buttonText}>Đăng ký</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {
+          navigation.navigate("Login")
+        }} style={styles.button}>
+          <Text style={styles.buttonText}>Đăng nhập</Text>
+        </TouchableOpacity>
+        
       </View>
-    </ImageBackground>
+    
   );
 };
 
@@ -83,7 +100,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    flex: 1,
+    flex: 1,backgroundColor: 'orange',
     justifyContent: "center",
     alignItems: "center",
     padding: 20,

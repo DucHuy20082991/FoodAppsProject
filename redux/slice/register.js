@@ -16,12 +16,12 @@ export const registerUser = createAsyncThunk(
       );
 
       const data = await response.json();
-      alert("Response data:", data);
+    
 
       if (!response.ok) {
         return thunkApi.rejectWithValue("Register failed");
       }
-
+      alert("Đăng kí thành công");
       return data; // Return data on successful registration
     } catch (error) {
       console.error("Registration error:", error); // Log any registration errors
