@@ -121,7 +121,7 @@ export default Home = ({navigation}) => {
                         {item.title}
                       </Text>
                       <Text style={styles.popularTitlesWeight}>
-                        Weight {item.weight}
+                        Khối lượng {item.weight}
                       </Text>
                     </View>
                   </View>
