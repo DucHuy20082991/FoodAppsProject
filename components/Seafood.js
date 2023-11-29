@@ -67,14 +67,14 @@ export default Seafood = ({navigation}) => {
           <Text style={styles.titlesSubtitle}>Tận Nơi</Text>
         </View>
         {/* Search */}
-        {/* <View style={styles.searchWrapper}>
+        <View style={styles.searchWrapper}>
           <Image
             style={{height: 24, width: 24}}
             source={require('../assets/images/search.png')}></Image>
           <View style={styles.search}>
             <Text style={styles.searchText}>Tìm kiếm</Text>
           </View>
-        </View> */}
+        </View>
 
         {/* Categories
         <View style={styles.categoriesWrapper}>
