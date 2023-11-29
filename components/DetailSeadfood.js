@@ -66,9 +66,7 @@ const DetailSeadfood = ({route}) => {
           <View style={styles.infoLeftWrapper}>
             <View style={styles.infoItemWrapper}>
               <Text style={styles.infoItemTitle}>Loại</Text>
-              <Text style={styles.infoItemText}>
-                {item.sizeName} {item.sizeNumber}"
-              </Text>
+              <Text style={styles.infoItemText}>{item.sizeName}</Text>
             </View>
             <View style={styles.infoItemWrapper}>
               <Text style={styles.infoItemTitle}>Size</Text>
@@ -76,7 +74,7 @@ const DetailSeadfood = ({route}) => {
             </View>
             <View style={styles.infoItemWrapper}>
               <Text style={styles.infoItemTitle}>Giao hàng vào</Text>
-              <Text style={styles.infoItemText}>{item.deliveryTime} min</Text>
+              <Text style={styles.infoItemText}>{item.deliveryTime} Phút</Text>
             </View>
           </View>
           <View>
@@ -97,7 +95,8 @@ const DetailSeadfood = ({route}) => {
           </View>
         </View>
 
-        <TouchableOpacity onPress={() => alert('Your order has been placed!')}>
+        <TouchableOpacity
+          onPress={() => alert('Đơn hàng của bạn đã được đặt!')}>
           <View style={styles.orderWrapper}>
             <Text style={styles.orderText}>Đặt hàng</Text>
             <Image

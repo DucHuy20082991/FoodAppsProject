@@ -97,7 +97,7 @@ const Detail = ({route}) => {
           </View>
         </View>
 
-        <TouchableOpacity onPress={() => alert('Your order has been placed!')}>
+        <TouchableOpacity onPress={() => alert('Đơn hàng của bạn đã được đặt!')}>
           <View style={styles.orderWrapper}>
             <Text style={styles.orderText}>Đặt hàng</Text>
             <Image
