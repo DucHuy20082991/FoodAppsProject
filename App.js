@@ -101,7 +101,7 @@ function BottomTabNavigator() {
         name="Home"
         component={StackNavigator}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Pizza',
           tabBarIcon: ({color, size}) => (
             <Image
               style={{height: 25, width: 25}}
