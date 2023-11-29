@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   StyleSheet,
   View,
   Image,
   FlatList,
+  TextInput,
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
@@ -16,6 +17,8 @@ import {useNavigation} from '@react-navigation/native';
 import seafood from '../assets/data/seafood';
 
 export default Seafood = ({}) => {
+  const [searchKeyword, setSearchKeyword] = useState('');
+
   const navigation = useNavigation();
   const renderCategoryItem = ({item}) => {
     return (
@@ -72,7 +75,12 @@ export default Seafood = ({}) => {
             style={{height: 24, width: 24}}
             source={require('../assets/images/search.png')}></Image>
           <View style={styles.search}>
-            <Text style={styles.searchText}>Tìm kiếm</Text>
+            <TextInput
+              style={styles.searchText}
+              placeholder="Tìm kiếm"
+              placeholderTextColor={colors.textLight}
+              onChangeText={text => setSearchKeyword(text)}
+            />
           </View>
         </View>
 
@@ -92,61 +100,68 @@ export default Seafood = ({}) => {
 
         <View style={styles.popularWrapper}>
           <Text style={styles.popularTitle}>Phổ biến</Text>
-          {seafood.map(item => (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() =>
-                navigation.navigate('DetailSeadfood', {
-                  item: item,
-                })
-              }>
-              <View
-                style={[
-                  styles.popularCardWrapper,
-                  {
-                    marginTop: item.id == 1 ? 10 : 20,
-                  },
-                ]}>
-                <View>
+          {seafood
+            .filter(item =>
+              item.title.toLowerCase().includes(searchKeyword.toLowerCase()),
+            )
+            .map(item => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() =>
+                  navigation.navigate('DetailSeadfood', {
+                    item: item,
+                  })
+                }>
+                <View
+                  style={[
+                    styles.popularCardWrapper,
+                    {
+                      marginTop: item.id == 1 ? 10 : 20,
+                    },
+                  ]}>
                   <View>
-                    <View style={styles.popularTopWrapper}>
-                      <Image
-                        style={{height: 24, width: 24}}
-                        source={require('../assets/images/crown.png')}></Image>
-                      <Text style={styles.popularTopText}>
-                        Được chọn nhiều trong tuần
-                      </Text>
+                    <View>
+                      <View style={styles.popularTopWrapper}>
+                        <Image
+                          style={{height: 24, width: 24}}
+                          source={require('../assets/images/crown.png')}></Image>
+                        <Text style={styles.popularTopText}>
+                          Được chọn nhiều trong tuần
+                        </Text>
+                      </View>
+                      <View style={styles.popularTitlesWrapper}>
+                        <Text style={styles.popularTitlesTitle}>
+                          {item.title}
+                        </Text>
+                        <Text style={styles.popularTitlesWeight}>
+                          Khối lượng {item.weight}
+                        </Text>
+                      </View>
                     </View>
-                    <View style={styles.popularTitlesWrapper}>
-                      <Text style={styles.popularTitlesTitle}>
-                        {item.title}
-                      </Text>
-                      <Text style={styles.popularTitlesWeight}>
-                        Khối lượng {item.weight}
-                      </Text>
+                    <View style={styles.popularCardBottom}>
+                      <View style={styles.addPizzaButton}>
+                        <Image
+                          style={{height: 10, width: 10}}
+                          source={require('../assets/images/plus.png')}></Image>
+                      </View>
+                      <View style={styles.ratingWrapper}>
+                        <Image
+                          style={{height: 10, width: 10}}
+                          source={require('../assets/images/star.png')}></Image>
+                        <Text style={styles.rating}>{item.rating}</Text>
+                      </View>
                     </View>
                   </View>
-                  <View style={styles.popularCardBottom}>
-                    <View style={styles.addPizzaButton}>
-                      <Image
-                        style={{height: 10, width: 10}}
-                        source={require('../assets/images/plus.png')}></Image>
-                    </View>
-                    <View style={styles.ratingWrapper}>
-                      <Image
-                        style={{height: 10, width: 10}}
-                        source={require('../assets/images/star.png')}></Image>
-                      <Text style={styles.rating}>{item.rating}</Text>
-                    </View>
-                  </View>
-                </View>
 
-                <View style={styles.popularCardRight}>
-                  <Image source={item.image} style={styles.popularCardImage} />
+                  <View style={styles.popularCardRight}>
+                    <Image
+                      source={item.image}
+                      style={styles.popularCardImage}
+                    />
+                  </View>
                 </View>
-              </View>
-            </TouchableOpacity>
-          ))}
+              </TouchableOpacity>
+            ))}
         </View>
       </ScrollView>
     </View>
