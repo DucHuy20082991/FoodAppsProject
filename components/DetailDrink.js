@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   infoLeftWrapper: {
-    paddingLeft: 20,
+    paddingLeft: 10,
   },
   infoItemWrapper: {
     marginBottom: 20,
@@ -175,6 +175,9 @@ const styles = StyleSheet.create({
     color: colors.textDark,
   },
   itemImage: {
+    height: 300,
+    width: 300,
+    borderRadius: 10,
     resizeMode: 'contain',
     marginLeft: 10,
   },
