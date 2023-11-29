@@ -25,7 +25,7 @@ const DetailSeadfood = ({route}) => {
             marginLeft: item.id === '1' ? 20 : 0,
           },
         ]}>
-        <Image source={item.image} style={styles.ingredientImage} />
+        <Image source={item.image} style={{height: 24, width: 24}} />
       </View>
     );
   };
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Montserrat-Bold',
-    fontSize: 32,
+    fontSize: 49,
     color: colors.textDark,
     width: '50%',
   },
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   itemImage: {
     resizeMode: 'contain',
-    marginLeft: 50,
+    marginLeft: 10,
   },
   ingredientsWrapper: {
     marginTop: 40,
@@ -208,6 +208,8 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   ingredientImage: {
+    height: 25,
+    width: 25,
     resizeMode: 'contain',
   },
   orderWrapper: {

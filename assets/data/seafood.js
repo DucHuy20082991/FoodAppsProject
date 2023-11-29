@@ -13,8 +13,8 @@ const seafood = [
     ingredients: [
       {
         id: '1',
-        name: 'Thịt xông khói',
-        image: require('../images/ham.png'),
+        name: 'Cá hồi',
+        image: require('../images/samon.png'),
       },
       {
         id: '2',
@@ -23,8 +23,8 @@ const seafood = [
       },
       {
         id: '3',
-        name: 'Phô mai',
-        image: require('../images/cheese.png'),
+        name: 'Ớt',
+        image: require('../images/chili.png'),
       },
       {
         id: '4',
@@ -54,6 +54,11 @@ const seafood = [
         id: '2',
         name: 'Tỏi',
         image: require('../images/garlic.png'),
+      },
+      {
+        id: '3',
+        name: 'Ớt',
+        image: require('../images/chili.png'),
       },
     ],
   },
