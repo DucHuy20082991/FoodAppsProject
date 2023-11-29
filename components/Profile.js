@@ -2,33 +2,36 @@ import {View, Text, Image} from 'react-native';
 import React, {useState, useEffect} from 'react';
 
 const Profile = () => {
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    fetchData();
+    fetchDataForCurrentUser();
   }, []);
 
-  const fetchData = async () => {
+  const fetchDataForCurrentUser = async () => {
     try {
-      const response = await fetch(
-        'https://6562cdc5ee04015769a693bb.mockapi.io/users',
-      );
-      const data = await response.json();
-      setUserData(data);
+      // Lấy thông tin người dùng đã lưu từ AsyncStorage sau khi đăng nhập
+      const user = await AsyncStorage.getItem('currentUser');
+      if (user) {
+        const parsedUser = JSON.parse(user);
+        setUserData(parsedUser);
+      }
     } catch (error) {
-      console.error('Error fetching data: ', error);
+      console.error('Error fetching user data: ', error);
     }
   };
   return (
     <View style={{flex: 1}}>
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={{color: 'red', fontSize: 30}}>Usernames:</Text>
-        {userData.map(user => (
-          <Text key={user.id} >
-            {user.username}
-          </Text>
-        ))}
-        <Text>dáda</Text>
+        <Text style={{color: 'red', fontSize: 30}}>User Info:</Text>
+        {userData ? (
+          <View>
+            <Text>Username: {userData.username}</Text>
+            {/* Hiển thị thông tin cá nhân khác của người dùng */}
+          </View>
+        ) : (
+          <Text>No user logged in</Text>
+        )}
       </View>
       <View
         style={{

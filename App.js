@@ -27,7 +27,7 @@ function StackNavigator() {
       screenOptions={{
         headerShown: false, // Ẩn tiêu đề header mặc định
       }}
-      initialRouteName="Home">
+      initialRouteName="SplashScreen">
       <Stack.Screen
         name="Forgotpassword"
         component={Forgotpassword}
