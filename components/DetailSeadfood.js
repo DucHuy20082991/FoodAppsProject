@@ -59,19 +59,19 @@ const DetailSeadfood = ({route}) => {
 
         {/* Price */}
         <View style={styles.priceWrapper}>
-          <Text style={styles.priceText}>${item.price}</Text>
+          <Text style={styles.priceText}>{item.price} VND</Text>
         </View>
 
         <View style={styles.infoWrapper}>
           <View style={styles.infoLeftWrapper}>
             <View style={styles.infoItemWrapper}>
-              <Text style={styles.infoItemTitle}>Cỡ bánh</Text>
+              <Text style={styles.infoItemTitle}>Loại</Text>
               <Text style={styles.infoItemText}>
                 {item.sizeName} {item.sizeNumber}"
               </Text>
             </View>
             <View style={styles.infoItemWrapper}>
-              <Text style={styles.infoItemTitle}>Đế bánh</Text>
+              <Text style={styles.infoItemTitle}>Size</Text>
               <Text style={styles.infoItemText}>{item.crust}</Text>
             </View>
             <View style={styles.infoItemWrapper}>

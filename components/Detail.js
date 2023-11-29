@@ -59,7 +59,7 @@ const Detail = ({route}) => {
 
         {/* Price */}
         <View style={styles.priceWrapper}>
-          <Text style={styles.priceText}>${item.price}</Text>
+          <Text style={styles.priceText}>{item.price} VND</Text>
         </View>
 
         <View style={styles.infoWrapper}>
