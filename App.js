@@ -3,6 +3,8 @@ import * as React from 'react';
 import {Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 import Home from './components/Home';
 import Detail from './components/Detail';
@@ -13,13 +15,13 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Forgotpassword from './components/Forgotpassword';
 
+
+
 const Stack = createStackNavigator();
 
-export default function App() {
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="SplashScreen">
+function StackNavigator() {
+  return ( 
+    <Stack.Navigator initialRouteName="SplashScreen">
         <Stack.Screen
             name="Forgotpassword"
             component={Forgotpassword}
@@ -66,6 +68,15 @@ export default function App() {
           />
    
         </Stack.Navigator>
+  )
+}
+
+
+export default function App() {
+  return (
+    <Provider store={store}>
+      <NavigationContainer>
+        
       </NavigationContainer>
     </Provider>
   );
