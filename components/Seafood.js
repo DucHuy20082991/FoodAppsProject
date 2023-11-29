@@ -76,7 +76,7 @@ export default Seafood = ({navigation}) => {
           </View>
         </View>
 
-        {/* Categories
+        {/* // Categories */}
         <View style={styles.categoriesWrapper}>
           <Text style={styles.categoriesTitle}>Thực đơn</Text>
           <View style={styles.categoriesListWrapper}>
@@ -87,7 +87,7 @@ export default Seafood = ({navigation}) => {
               horizontal={true}
             />
           </View>
-        </View> */}
+        </View>
         {/* Popular */}
 
         {/* <View style={styles.popularWrapper}>
