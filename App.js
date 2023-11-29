@@ -122,7 +122,7 @@ function BottomTabNavigator() {
         name="Drink"
         component={Drink}
         options={{
-          tabBarLabel: 'Seafood',
+          tabBarLabel: 'Drink',
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="Seafood" color={color} size={size} />
           ),
@@ -131,9 +131,9 @@ function BottomTabNavigator() {
 
       <Tab.Screen
         name="Profile"
-        component={Seafood}
+        component={Profile}
         options={{
-          tabBarLabel: 'Seafood',
+          tabBarLabel: 'Profile',
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="Seafood" color={color} size={size} />
           ),
