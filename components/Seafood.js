@@ -15,8 +15,8 @@ import colors from '../assets/colors/color';
 import {useNavigation} from '@react-navigation/native';
 import seafood from '../assets/data/seafood';
 
-export default Seafood = ({navigation}) => {
-  // const navigation = useNavigation()
+export default Seafood = ({}) => {
+  const navigation = useNavigation();
   const renderCategoryItem = ({item}) => {
     return (
       <View
