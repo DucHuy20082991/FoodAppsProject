@@ -5,9 +5,8 @@ const seafood = [
     title: 'Cá hồi ',
     weight: '540 gr',
     rating: '5.0',
-    price: 150.0,
+    price: '150.000',
     sizeName: 'Loại 1',
-    sizeNumber: 14,
     crust: 'Vừa',
     deliveryTime: 30,
     ingredients: [
@@ -39,9 +38,8 @@ const seafood = [
     title: 'Tôm',
     weight: '450 gr',
     rating: '4.0',
-    price: 96.0,
+    price: '96.000',
     sizeName: 'Loại 2',
-    sizeNumber: 10,
     crust: 'Nhỏ',
     deliveryTime: 40,
     ingredients: [
@@ -68,9 +66,8 @@ const seafood = [
     title: 'Hào',
     weight: '700 gr',
     rating: '5.0',
-    price: 90.0,
+    price: '90.000',
     sizeName: 'Loại 1',
-    sizeNumber: 18,
     crust: 'Lớn',
     deliveryTime: 20,
     ingredients: [

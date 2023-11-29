@@ -95,7 +95,7 @@ export default Drink = ({}) => {
             <TouchableOpacity
               key={item.id}
               onPress={() =>
-                navigation.navigate('Detail', {
+                navigation.navigate('DetailDrink', {
                   item: item,
                 })
               }>

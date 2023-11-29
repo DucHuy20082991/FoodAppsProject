@@ -5,9 +5,8 @@ const Drink = [
     title: 'Nước ngọt ',
     weight: '500 ml',
     rating: '5.0',
-    price: 150.0,
+    price: '150.000',
     sizeName: 'Loại 1',
-    sizeNumber: 14,
     crust: 'Vừa',
     deliveryTime: 30,
     ingredients: [
@@ -29,9 +28,8 @@ const Drink = [
     title: 'Nước chanh',
     weight: '200 ml',
     rating: '4.0',
-    price: 96.0,
+    price: '96.000',
     sizeName: 'Loại 2',
-    sizeNumber: 10,
     crust: 'Nhỏ',
     deliveryTime: 40,
     ingredients: [

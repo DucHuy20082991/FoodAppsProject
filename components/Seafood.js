@@ -96,7 +96,7 @@ export default Seafood = ({}) => {
             <TouchableOpacity
               key={item.id}
               onPress={() =>
-                navigation.navigate('Detail', {
+                navigation.navigate('DetailSeadfood', {
                   item: item,
                 })
               }>
