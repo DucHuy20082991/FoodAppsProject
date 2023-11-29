@@ -15,6 +15,7 @@ import Forgotpassword from './components/Forgotpassword';
 import Seafood from './components/Seafood';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Drink from './components/Drink';
+import Profile from './components/Profile';
 
 const Stack = createStackNavigator();
 
@@ -72,9 +73,17 @@ function StackNavigator() {
           headerShown: false,
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="Drink"
         component={Drink}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
         options={{
           headerShown: false,
         }}
@@ -109,9 +118,9 @@ function BottomTabNavigator() {
         }}
       />
 
-<Tab.Screen
-        name="Seafood"
-        component={Seafood}
+      <Tab.Screen
+        name="Drink"
+        component={Drink}
         options={{
           tabBarLabel: 'Seafood',
           tabBarIcon: ({color, size}) => (
@@ -120,8 +129,8 @@ function BottomTabNavigator() {
         }}
       />
 
-<Tab.Screen
-        name="Seafood"
+      <Tab.Screen
+        name="Profile"
         component={Seafood}
         options={{
           tabBarLabel: 'Seafood',
