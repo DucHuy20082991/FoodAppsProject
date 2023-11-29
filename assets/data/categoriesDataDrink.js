@@ -9,13 +9,13 @@ const categoriesData = [
     id: '2',
     image: require('../images/shrimp-icon.png'),
     title: 'Hải sản',
-    selected: true,
+    selected: false,
   },
   {
     id: '3',
     image: require('../images/soda-icon.png'),
     title: 'Thức uống',
-    selected: false,
+    selected: true,
   },
 ];
 
