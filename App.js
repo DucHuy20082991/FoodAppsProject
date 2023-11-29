@@ -14,6 +14,7 @@ import Login from './components/Login';
 import Forgotpassword from './components/Forgotpassword';
 import Seafood from './components/Seafood';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Drink from './components/Drink';
 
 const Stack = createStackNavigator();
 
@@ -67,6 +68,13 @@ function StackNavigator() {
       <Stack.Screen
         name="Detail"
         component={Detail}
+        options={{
+          headerShown: false,
+        }}
+      />
+       <Stack.Screen
+        name="Drink"
+        component={Drink}
         options={{
           headerShown: false,
         }}
