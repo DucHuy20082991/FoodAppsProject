@@ -24,44 +24,61 @@ const Profile = () => {
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
         <Text style={{color: 'red', fontSize: 30}}>Usernames:</Text>
         {userData.map(user => (
-          <Text key={user.id} style={styles.username}>
+          <Text key={user.id} >
             {user.username}
           </Text>
         ))}
+        <Text>dáda</Text>
       </View>
-      <View style={{flexDirection: 'row'}}>
-        <Image
-          style={{height: 50, width: 50}}
-          source={require('../assets/images/cart.png')}></Image>
-        <Text>Đơn hàng </Text>
-      </View>
+      <View
+        style={{
+          padding: 10,
+          marginTop: 80,
+          justifyContent: 'center',
+          alignContent: 'center',
+        }}>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <Image
+            style={{height: 50, width: 50, marginRight: 10}}
+            source={require('../assets/images/cart.png')}></Image>
+          <Text>Đơn hàng </Text>
+        </View>
 
-      <View style={{flexDirection: 'row', marginTop: 15}}>
-        <Image
-          style={{height: 50, width: 50}}
-          source={require('../assets/images/cart.png')}></Image>
-        <Text>Giởi hàng </Text>
-      </View>
+        <View
+          style={{flexDirection: 'row', alignItems: 'center', marginTop: 25}}>
+          <Image
+            style={{height: 50, width: 50, marginRight: 10}}
+            source={require('../assets/images/cart.png')}></Image>
+          <Text style={{alignContent: 'center'}}>Giỏ hàng </Text>
+        </View>
 
-      <View style={{flexDirection: 'row', marginTop: 15}}>
-        <Image
-          style={{height: 50, width: 50}}
-          source={require('../assets/images/follow.png')}></Image>
-        <Text>Đang theo dỗi </Text>
-      </View>
+        <View
+          style={{flexDirection: 'row', marginTop: 25, alignItems: 'center'}}>
+          <Image
+            style={{height: 50, width: 50, marginRight: 10}}
+            source={require('../assets/images/follow.png')}></Image>
+          <Text>Đang theo dỗi </Text>
+        </View>
 
-      <View style={{flexDirection: 'row', marginTop: 15}}>
-        <Image
-          style={{height: 50, width: 50}}
-          source={require('../assets/images/chat.png')}></Image>
-        <Text>Chat </Text>
-      </View>
+        <View
+          style={{flexDirection: 'row', marginTop: 25, alignItems: 'center'}}>
+          <Image
+            style={{height: 50, width: 50, marginRight: 10}}
+            source={require('../assets/images/chat.png')}></Image>
+          <Text>Chat </Text>
+        </View>
 
-      <View style={{flexDirection: 'row', marginTop: 15}}>
-        <Image
-          style={{height: 50, width: 50}}
-          source={require('../assets/images/setting.png')}></Image>
-        <Text>Cài đặt </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: 25,
+            alignItems: 'center',
+          }}>
+          <Image
+            style={{height: 50, width: 50, marginRight: 10}}
+            source={require('../assets/images/setting.png')}></Image>
+          <Text>Cài đặt </Text>
+        </View>
       </View>
     </View>
   );

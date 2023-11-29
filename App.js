@@ -44,6 +44,14 @@ function StackNavigator() {
       />
 
       <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
         name="Register"
         component={Register}
         options={{
@@ -95,13 +103,13 @@ function StackNavigator() {
         }}
       />
 
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Profile"
         component={Profile}
         options={{
           headerShown: false,
         }}
-      />
+      /> */}
 
       <Stack.Screen
         name="DetailSeadfood"
