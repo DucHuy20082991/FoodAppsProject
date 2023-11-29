@@ -23,7 +23,11 @@ const Stack = createStackNavigator();
 
 function StackNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false, // Ẩn tiêu đề header mặc định
+      }}
+      initialRouteName="Home">
       <Stack.Screen
         name="Forgotpassword"
         component={Forgotpassword}
