@@ -12,7 +12,7 @@ import {Provider} from 'react-redux';
 import Register from './components/Register';
 import Login from './components/Login';
 import Forgotpassword from './components/Forgotpassword';
-
+import Seafood from './components/Seafood';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createStackNavigator();
@@ -38,6 +38,13 @@ function StackNavigator() {
       <Stack.Screen
         name="Register"
         component={Register}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Seafood"
+        component={Seafood}
         options={{
           headerShown: false,
         }}
@@ -84,12 +91,34 @@ function BottomTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Details"
-        component={Detail}
+        name="Seafood"
+        component={Seafood}
         options={{
-          tabBarLabel: 'Details',
+          tabBarLabel: 'Seafood',
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="details" color={color} size={size} />
+            <MaterialCommunityIcons name="Seafood" color={color} size={size} />
+          ),
+        }}
+      />
+
+<Tab.Screen
+        name="Seafood"
+        component={Seafood}
+        options={{
+          tabBarLabel: 'Seafood',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="Seafood" color={color} size={size} />
+          ),
+        }}
+      />
+
+<Tab.Screen
+        name="Seafood"
+        component={Seafood}
+        options={{
+          tabBarLabel: 'Seafood',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="Seafood" color={color} size={size} />
           ),
         }}
       />
