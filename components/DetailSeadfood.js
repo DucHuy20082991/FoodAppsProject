@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  ScrollView,
 } from 'react-native';
 import colors from '../assets/colors/color';
 import {useNavigation} from '@react-navigation/native';
@@ -30,79 +31,81 @@ const DetailSeadfood = ({route}) => {
   };
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <SafeAreaView>
-        <View style={styles.headerWrapper}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <View style={styles.headerLeft}>
+      <ScrollView>
+        {/* Header */}
+        <SafeAreaView>
+          <View style={styles.headerWrapper}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <View style={styles.headerLeft}>
+                <Image
+                  style={{height: 12, width: 12}}
+                  source={require('../assets/images/left-chevron.png')}
+                />
+              </View>
+            </TouchableOpacity>
+            <View style={styles.headerRight}>
               <Image
                 style={{height: 12, width: 12}}
-                source={require('../assets/images/left-chevron.png')}
+                source={require('../assets/images/star.png')}
               />
             </View>
-          </TouchableOpacity>
-          <View style={styles.headerRight}>
-            <Image
-              style={{height: 12, width: 12}}
-              source={require('../assets/images/star.png')}
+          </View>
+        </SafeAreaView>
+
+        {/* Titles */}
+        <View style={styles.titlesWrapper}>
+          <Text style={styles.title}>{item.title}</Text>
+        </View>
+
+        {/* Price */}
+        <View style={styles.priceWrapper}>
+          <Text style={styles.priceText}>${item.price}</Text>
+        </View>
+
+        <View style={styles.infoWrapper}>
+          <View style={styles.infoLeftWrapper}>
+            <View style={styles.infoItemWrapper}>
+              <Text style={styles.infoItemTitle}>Cỡ bánh</Text>
+              <Text style={styles.infoItemText}>
+                {item.sizeName} {item.sizeNumber}"
+              </Text>
+            </View>
+            <View style={styles.infoItemWrapper}>
+              <Text style={styles.infoItemTitle}>Đế bánh</Text>
+              <Text style={styles.infoItemText}>{item.crust}</Text>
+            </View>
+            <View style={styles.infoItemWrapper}>
+              <Text style={styles.infoItemTitle}>Giao hàng vào</Text>
+              <Text style={styles.infoItemText}>{item.deliveryTime} min</Text>
+            </View>
+          </View>
+          <View>
+            <Image source={item.image} style={styles.itemImage} />
+          </View>
+        </View>
+
+        <View style={styles.ingredientsWrapper}>
+          <Text style={styles.ingredientsTitle}>Thành phần</Text>
+          <View style={styles.ingredientsListWrapper}>
+            <FlatList
+              data={item.ingredients}
+              renderItem={renderIngredientsItem}
+              keyExtractor={item => item.id}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
             />
           </View>
         </View>
-      </SafeAreaView>
 
-      {/* Titles */}
-      <View style={styles.titlesWrapper}>
-        <Text style={styles.title}>{item.title}</Text>
-      </View>
-
-      {/* Price */}
-      <View style={styles.priceWrapper}>
-        <Text style={styles.priceText}>${item.price}</Text>
-      </View>
-
-      <View style={styles.infoWrapper}>
-        <View style={styles.infoLeftWrapper}>
-          <View style={styles.infoItemWrapper}>
-            <Text style={styles.infoItemTitle}>Cỡ bánh</Text>
-            <Text style={styles.infoItemText}>
-              {item.sizeName} {item.sizeNumber}"
-            </Text>
+        <TouchableOpacity onPress={() => alert('Your order has been placed!')}>
+          <View style={styles.orderWrapper}>
+            <Text style={styles.orderText}>Đặt hàng</Text>
+            <Image
+              style={{height: 15, width: 15, alignSelf: 'center'}}
+              source={require('../assets/images/chevron.png')}></Image>
           </View>
-          <View style={styles.infoItemWrapper}>
-            <Text style={styles.infoItemTitle}>Đế bánh</Text>
-            <Text style={styles.infoItemText}>{item.crust}</Text>
-          </View>
-          <View style={styles.infoItemWrapper}>
-            <Text style={styles.infoItemTitle}>Giao hàng vào</Text>
-            <Text style={styles.infoItemText}>{item.deliveryTime} min</Text>
-          </View>
-        </View>
-        <View>
-          <Image source={item.image} style={styles.itemImage} />
-        </View>
-      </View>
-
-      <View style={styles.ingredientsWrapper}>
-        <Text style={styles.ingredientsTitle}>Thành phần</Text>
-        <View style={styles.ingredientsListWrapper}>
-          <FlatList
-            data={item.ingredients}
-            renderItem={renderIngredientsItem}
-            keyExtractor={item => item.id}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
-      </View>
-
-      <TouchableOpacity onPress={() => alert('Your order has been placed!')}>
-        <View style={styles.orderWrapper}>
-          <Text style={styles.orderText}>Đặt hàng</Text>
-          <Image
-            style={{height: 15, width: 15, alignSelf: 'center'}}
-            source={require('../assets/images/chevron.png')}></Image>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 };
