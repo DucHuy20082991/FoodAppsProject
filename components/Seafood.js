@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import categoriesData from '../assets/data/categoriesData';
+import categoriesDataSeafood from '../assets/data/categoriesDataSeafood';
 import popularData from '../assets/data/popularData';
 import colors from '../assets/colors/color';
 import {useNavigation} from '@react-navigation/native';
@@ -81,7 +81,7 @@ export default Seafood = ({navigation}) => {
           <Text style={styles.categoriesTitle}>Thực đơn</Text>
           <View style={styles.categoriesListWrapper}>
             <FlatList
-              data={categoriesData}
+              data={categoriesDataSeafood}
               renderItem={renderCategoryItem}
               keyExtractor={item => item.id}
               horizontal={true}
@@ -90,7 +90,7 @@ export default Seafood = ({navigation}) => {
         </View>
         {/* Popular */}
 
-        {/* <View style={styles.popularWrapper}>
+        <View style={styles.popularWrapper}>
           <Text style={styles.popularTitle}>Phổ biến</Text>
           {seafood.map(item => (
             <TouchableOpacity
@@ -147,7 +147,7 @@ export default Seafood = ({navigation}) => {
               </View>
             </TouchableOpacity>
           ))}
-        </View> */}
+        </View>
       </ScrollView>
     </View>
   );
