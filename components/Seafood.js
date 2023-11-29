@@ -322,10 +322,11 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   popularCardRight: {
-    marginLeft: 40,
+    marginLeft: 5,
   },
   popularCardImage: {
-    width: 210,
+    borderRadius: 20,
+    width: 150,
     height: 125,
     resizeMode: 'contain',
   },
