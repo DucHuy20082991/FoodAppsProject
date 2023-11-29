@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {Text} from 'react-native';
+import {Text, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -103,7 +103,9 @@ function BottomTabNavigator() {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <Image
+              style={{height: 25, width: 25}}
+              source={require('./assets/images/piz.png')}></Image>
           ),
         }}
       />
@@ -113,7 +115,9 @@ function BottomTabNavigator() {
         options={{
           tabBarLabel: 'Seafood',
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="Seafood" color={color} size={size} />
+            <Image
+              style={{height: 25, width: 25}}
+              source={require('./assets/images/seafood.png')}></Image>
           ),
         }}
       />
@@ -124,7 +128,9 @@ function BottomTabNavigator() {
         options={{
           tabBarLabel: 'Drink',
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="Seafood" color={color} size={size} />
+            <Image
+              style={{height: 25, width: 25}}
+              source={require('./assets/images/drink.png')}></Image>
           ),
         }}
       />
@@ -135,7 +141,9 @@ function BottomTabNavigator() {
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="Seafood" color={color} size={size} />
+            <Image
+              style={{height: 25, width: 25}}
+              source={require('./assets/images/profile.png')}></Image>
           ),
         }}
       />
