@@ -21,6 +21,74 @@ import DetailDrink from './components/DetailDrink';
 
 const Stack = createStackNavigator();
 
+const Tab = createBottomTabNavigator();
+function TabBottom() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Home1"
+        component={Home}
+        options={{
+          tabBarLabel: 'Pizza',
+          tabBarIcon: ({color, size}) => (
+            <Image
+              style={{height: 25, width: 25}}
+              source={require('./assets/images/piz.png')}></Image>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Seafood"
+        component={Seafood}
+        options={{
+          tabBarLabel: 'Seafood',
+          tabBarIcon: ({color, size}) => (
+            <Image
+              style={{height: 25, width: 25}}
+              source={require('./assets/images/seafood.png')}></Image>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Drink"
+        component={Drink}
+        options={{
+          tabBarLabel: 'Drink',
+          tabBarIcon: ({color, size}) => (
+            <Image
+              style={{height: 25, width: 25}}
+              source={require('./assets/images/drink.png')}></Image>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color, size}) => (
+            <Image
+              style={{height: 25, width: 25}}
+              source={require('./assets/images/profile.png')}></Image>
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+function StackAuth() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Login" component={Login}></Stack.Screen>
+      <Stack.Screen
+        name="Forgotpassword"
+        component={Forgotpassword}></Stack.Screen>
+      <Stack.Screen name="Register" component={Register}></Stack.Screen>
+      <Stack.Screen name="SplashScreen" component={SplashScreen}></Stack.Screen>
+      <Stack.Screen name="Home" component={TabBottom}></Stack.Screen>
+    </Stack.Navigator>
+  );
+}
 function StackNavigator() {
   return (
     <Stack.Navigator
@@ -122,8 +190,6 @@ function StackNavigator() {
   );
 }
 
-const Tab = createBottomTabNavigator();
-
 function BottomTabNavigator() {
   return (
     <Tab.Navigator>
@@ -184,7 +250,8 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <BottomTabNavigator></BottomTabNavigator>
+        {/* <BottomTabNavigator></BottomTabNavigator> */}
+        <StackAuth></StackAuth>
       </NavigationContainer>
     </Provider>
   );
