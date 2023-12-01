@@ -92,6 +92,11 @@ function StackAuth() {
       <Stack.Screen name="Register" component={Register}></Stack.Screen>
       <Stack.Screen name="SplashScreen" component={SplashScreen}></Stack.Screen>
       <Stack.Screen name="Home" component={TabBottom}></Stack.Screen>
+      <Stack.Screen name="Detail" component={Detail}></Stack.Screen>
+      <Stack.Screen
+        name="DetailSeadfood"
+        component={DetailSeadfood}></Stack.Screen>
+      <Stack.Screen name="DetailDrink" component={DetailDrink}></Stack.Screen>
     </Stack.Navigator>
   );
 }
