@@ -24,7 +24,10 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 function TabBottom() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false, // Ẩn tiêu đề header mặc định
+      }}>
       <Tab.Screen
         name="Home1"
         component={Home}
@@ -78,7 +81,10 @@ function TabBottom() {
 }
 function StackAuth() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false, // Ẩn tiêu đề header mặc định
+      }}>
       <Stack.Screen name="Login" component={Login}></Stack.Screen>
       <Stack.Screen
         name="Forgotpassword"
