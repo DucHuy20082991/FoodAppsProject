@@ -1,9 +1,10 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   StyleSheet,
   View,
-  Image,TextInput,
+  Image,
+  TextInput,
   FlatList,
   ScrollView,
   TouchableOpacity,
@@ -106,7 +107,7 @@ export default Drink = ({}) => {
               <TouchableOpacity
                 key={item.id}
                 onPress={() =>
-                  navigation.navigate('DetailSeadfood', {
+                  navigation.navigate('DetailDrink', {
                     item: item,
                   })
                 }>
